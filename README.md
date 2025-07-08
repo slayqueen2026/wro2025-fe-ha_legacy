@@ -1,26 +1,32 @@
 Engineering materials
 ====
+This are the material that were used for the development of this project:
 
-This repository contains engineering materials of a self-driven vehicle's model participating in the WRO Future Engineers competition in the season 2022.
+1. 3 Car planks	
+2. 4 Hex coupler connector	
+3. L289N DC motor controller	
+4. Screws
+5. 3 Sensor carriers	
+6. 4 wheels	
+7. DC motor	
+8. Metal separators
+9. 2 Axle carriers	
+10. 2 MG996R Servo motor	
+11. Plastic separators	
+12. Arduino UNO R4	
+13. Vex battery
 
-## Content
 
-* `t-photos` contains 2 photos of the team (an official one and one funny photo with all team members)
-* `v-photos` contains 6 photos of the vehicle (from every side, from top and bottom)
-* `video` contains the video.md file with the link to a video where driving demonstration exists
-* `schemes` contains one or several schematic diagrams in form of JPEG, PNG or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect to each other.
-* `src` contains code of control software for all components which were programmed to participate in the competition
-* `models` is for the files for models used by 3D printers, laser cutting machines and CNC machines to produce the vehicle elements. If there is nothing to add to this location, the directory can be removed.
-* `other` is for other files which can be used to understand how to prepare the vehicle for the competition. It may include documentation how to connect to a SBC/SBM and upload files there, datasets, hardware specifications, communication protocols descriptions etc. If there is nothing to add to this location, the directory can be removed.
 
 ## Introduction
+====
+The robot moves using a DC motor controlled by an H-bridge motor driver. It uses three pins, IN1, IN2, and ENA, to set the direction and speed. The move() function allows the robot to go forward or backward, while the stop() function cuts the power to the motor to make it stop. This setup gives the robot basic but effective movement control, allowing it to travel through its environment smoothly.The robot is powered by a VEX 7.2V rechargeable battery. This battery is strong and reliable, designed for student robotics. It can power the motors and the electronics at the same time without losing voltage. The battery is rechargeable, safe, and long-lasting, which makes it perfect for classroom or project use. 
 
-_This part must be filled by participants with the technical clarifications about the code: which modules the code consists of, how they are related to the electromechanical components of the vehicle, and what is the process to build/compile/upload the code to the vehicle’s controllers._
 
-## How to prepare the repo based on the template
+The speed of the motor is controlled using the analogWrite() function on the ENA pin. This uses a method called PWM (pulse width modulation), which lets the robot change speed without turning the motor completely on or off. The code also uses the absolute value of the speed and checks the direction so that negative numbers make the motor move in reverse without causing errors. This makes the robot's movement flexible and safe.
 
-_Remove this section before the first commit to the repository_
+For obstacle detection, the robot uses three VL53L0X Time-of-Flight (ToF) sensors. One is placed in the front, and the others on the left and right sides. These sensors use laser measurements to check how far objects are, allowing the robot to avoid hitting things. The sensors are connected using different I2C addresses and special pins called xshutPins, which makes it possible to use all three at once on an Arduino. The front sensor (Fdist) looks for objects ahead, while the left (Ldist) and right (Rdist) sensors help the robot decide which way to turn.
 
-1. Clone this repo by using the `git clone` functionality.
-2. Remove `.git` directory
-3. [Initialize a new public repository on GitHub](https://github.com/new) by following instructions from "create a new repository on the command line" section (appeared after pressing "Create repository" button).
+
+
+
