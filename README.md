@@ -19,7 +19,7 @@ This are the material that were used for the development of this project:
 
 
 ## Introduction
-====
+
 The robot moves using a DC motor controlled by an H-bridge motor driver. It uses three pins, IN1, IN2, and ENA, to set the direction and speed. The move() function allows the robot to go forward or backward, while the stop() function cuts the power to the motor to make it stop. This setup gives the robot basic but effective movement control, allowing it to travel through its environment smoothly.The robot is powered by a VEX 7.2V rechargeable battery. This battery is strong and reliable, designed for student robotics. It can power the motors and the electronics at the same time without losing voltage. The battery is rechargeable, safe, and long-lasting, which makes it perfect for classroom or project use. 
 
 
